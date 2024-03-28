@@ -8,13 +8,8 @@ export function main() {
     
     let opcao: number;
 
-    const conta: Conta = new Conta(1, 123, 1,  "Thais Siqueira", 10000);
-    conta.visualizar();
-    conta.sacar(500.00);
-    conta.visualizar();
-    conta.depositar(1000.00);
-    conta.visualizar();
-
+    
+    // objeto da classe conta corrente (teste)
     const contacorrente: ContaCorrente = new ContaCorrente(2, 123, 1, "Thais", 15000, 1000);
     contacorrente.visualizar();
     contacorrente.sacar(200);
@@ -22,6 +17,8 @@ export function main() {
     contacorrente.depositar(1000);
     contacorrente.visualizar();
 
+    
+    // objeto da classe conta poupança (teste)
     const contapoupanca: ContaPoupanca = new ContaPoupanca(3, 123, 2, "Thais Raie", 1000, 10);
     contapoupanca.visualizar();
     contapoupanca.sacar(200);
@@ -30,6 +27,7 @@ export function main() {
     contapoupanca.visualizar();
 
 
+    // Menu com as opções da conta 
     while (true) {
 
         console.log(colors.bg.black, colors.fg.cyan,                      
@@ -57,7 +55,7 @@ export function main() {
         opcao = readlinesync.questionInt("");
 
         if (opcao == 9) {
-            console.log("\nBanco do Brazil com z - O seu futuro começa aqui!");
+            console.log("\nBanco RAIE - Seu dinheiro disponivél para você!");
             sobre();
             console.log(colors.reset, "");
             process.exit(0);
@@ -110,7 +108,7 @@ export function main() {
 function sobre(): void {
     console.log("****************************************************");
     console.log("Projeto Desenvolvido por: ");
-    console.log("Thais Siqueira - thaisdivino21@gmail.com");
+    console.log("Thais Siqueira");
     console.log("https://github.com/Thaisraie   ");
     ("****************************************************");
 }

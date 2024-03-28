@@ -1,11 +1,13 @@
-export class Conta {
+export abstract class Conta {
 
+    // Atributos e variáveis da classe conta 
     private _numero: number;
     private _agencia: number;
     private _tipo: number;
     private _titular: string;
     private _saldo: number;
 
+    // Método construtor / instanciar (criar) um novo objeto da classe conta 
 	constructor(numero: number, agencia: number, tipo: number, titular: string, saldo: number) {
 		this._numero = numero;
 		this._agencia = agencia;
@@ -13,6 +15,9 @@ export class Conta {
 		this._titular = titular;
 		this._saldo = saldo;
 	}
+
+    // //Métodos Get e Set - responsável por recuperar (get) 
+    // e alterar (set) os dados dos atributos 
 
 	public get numero() {
 		return this._numero;
@@ -42,6 +47,10 @@ export class Conta {
 		this._agencia = agencia;
 	}
 
+    public set tipo(tipo: number) {
+        this._tipo = tipo;
+	}
+
 
 	public set titular(titular: string) {
 		this._titular = titular;
@@ -62,6 +71,7 @@ export class Conta {
         return true;
     }
 
+    // Método depositar    
     public depositar(valor: number): void {
         this._saldo = this._saldo + valor;
     }
