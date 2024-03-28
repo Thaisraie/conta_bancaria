@@ -1,6 +1,8 @@
 import readlinesync = require("readline-sync");
 import { colors } from './src/util/Colors';
 import { Conta } from './src/model/Conta';
+import { ContaCorrente } from "./src/model/ContaCorrente";
+import { ContaPoupanca } from "./src/model/ContaPoupanca";
 
 export function main() {
     
@@ -13,13 +15,27 @@ export function main() {
     conta.depositar(1000.00);
     conta.visualizar();
 
+    const contacorrente: ContaCorrente = new ContaCorrente(2, 123, 1, "Thais", 15000, 1000);
+    contacorrente.visualizar();
+    contacorrente.sacar(200);
+    contacorrente.visualizar();
+    contacorrente.depositar(1000);
+    contacorrente.visualizar();
+
+    const contapoupanca: ContaPoupanca = new ContaPoupanca(3, 123, 2, "Thais Raie", 1000, 10);
+    contapoupanca.visualizar();
+    contapoupanca.sacar(200);
+    contapoupanca.visualizar();
+    contapoupanca.depositar(1000);
+    contapoupanca.visualizar();
+
 
     while (true) {
 
         console.log(colors.bg.black, colors.fg.cyan,                      
-                    "****************************************************");
+            "**************************************************");
         console.log("                                                    ");
-        console.log("                BANCO DO BRAZIL COM Z               ");
+        console.log("                     BANCO RAIE                     ");
         console.log("                                                    ");
         console.log("****************************************************");
         console.log("                                                    ");
