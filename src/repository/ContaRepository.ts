@@ -2,7 +2,7 @@ import { Conta } from "../model/Conta";
 
 export interface ContaRepository {
 
-    //CRUD da Conta 
+    //Método CRUD da Conta (create, read, update, delete)
     procurarPorNumero(numero: number): void;
     listarTodas(): void;
     cadastrar(conta: Conta): void;

@@ -1,11 +1,13 @@
-export class Conta {
+export abstract class Conta {
 
+    // Modificador privado, apenas essa classe pode ter acesso. Atributos da classe conta.
     private _numero: number;
     private _agencia: number;
     private _tipo: number;
     private _titular: string;
     private _saldo: number;
 
+    // Método construtor, cria o objeto da classe; this. recebe o atributo.
 	constructor(numero: number, agencia: number, tipo: number, titular: string, saldo: number) {
 		this._numero = numero;
 		this._agencia = agencia;
@@ -14,6 +16,7 @@ export class Conta {
 		this._saldo = saldo;
 	}
 
+    //Método Get: recupera; Set: altera os atributos. 
 	public get numero() {
 		return this._numero;
 	}
@@ -51,6 +54,7 @@ export class Conta {
 		this._saldo = saldo;
 	}
     
+    // Função c/ condição para sacar.
     public sacar(valor: number): boolean{
 
         if (this._saldo < valor){
@@ -62,15 +66,19 @@ export class Conta {
         return true;
     }
 
+    // Função depositar
     public depositar(valor: number): void {
         this._saldo = this._saldo + valor;
     }
 
-    public visualizar(): void {
+    // Função sem retorno dos atributos istanciados.
+    public visualizar(): void{
         
+    
+    // Criando condição do atributo tipo.
         let tipo: string = "";
     
-    switch (this._tipo) {
+    switch (this._tipo){
         case 1:
             tipo = "Conta corrente";
             break;   
@@ -79,12 +87,13 @@ export class Conta {
             break;
     }
 
+    // Exibindo no console.
         console.log("\n\n*****************************************");
         console.log("Dados da Conta");
         console.log("*****************************************");
         console.log(`Número da conta: ${this._numero}`);
         console.log(`Número da agência: ${this._agencia}`);
-        console.log(`Tipo da conta: ${this._tipo}`);
+        console.log(`Tipo da conta: ${tipo}`);
         console.log(`Títular da conta: ${this._titular}`);
         console.log(`Saldo da conta: ${this._saldo.toFixed(2)}`);
     }
